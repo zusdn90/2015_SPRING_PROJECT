@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.traveler.mapper.ShareMapper">
+    
+    <select id="selectCount" resultType="int">
+		select count(*) from TravelShareBoard;        
+    </select>
+    
+    <select id="selectAll" resultType="com.traveler.mapper.ShareMapper">
+        select boardNum,
+        	   id,
+        	   title,
+        	   term,
+        	   number,
+        	   content,
+        	   picture,
+        	   map,
+        	   transCost,
+        	   stayCost,
+        	   eatCost,
+        	   totalCost,
+        	   writer,
+        	   memberPicture,
+        	   birthday,
+        	   tel
+         from TravelShareBoard   
+    </select>
+    
+    <select id="selectByboardNum" parameterType="int" resultType="com.traveler.model.Share">
+        select boardNum,
+        	   id,
+        	   title,
+        	   term,
+        	   number,
+        	   content,
+        	   picture,
+        	   map,
+        	   transCost,
+        	   stayCost,
+        	   eatCost,
+        	   totalCost,
+        	   writer,
+        	   memberPicture,
+        	   birthday,
+        	   tel
+         from TravelShareBoard  
+		 where boardNum = #{boardNum}
+    </select>
+    
+        <select id="selectPage" 
+        	parameterType="com.traveler.util.Pagination" 
+        	resultType="com.traveler.model.Share"
+        	databaseId="mysql">
+         select boardNum,
+        	   id,
+        	   title,
+        	   term,
+        	   number,
+        	   content,
+        	   picture,
+        	   map,
+        	   transCost,
+        	   stayCost,
+        	   eatCost,
+        	   totalCost,
+        	   writer,
+        	   memberPicture,
+        	   birthday,
+        	   tel
+         from TravelShareBoard  
+		 order by boardNum desc
+		 limit #{start}, #{length} 
+    </select>
+    
+      <insert id="insert" 
+        	parameterType="com.traveler.model.Share"
+        	useGeneratedKeys="true"
+        	keyProperty="id"
+        	databaseId="mysql">
+        
+        insert into TravelShareBoard
+		(
+			   boardNum,
+        	   id,
+        	   title,
+        	   term,
+        	   number,
+        	   content,
+        	   picture,
+        	   map,
+        	   transCost,
+        	   stayCost,
+        	   eatCost,
+        	   totalCost,
+        	   writer,
+        	   memberPicture,
+        	   birthday,
+        	   tel
+		)
+		values
+		(
+		    #{boardNum,				jdbcType=NUMERIC},
+			#{id, 					jdbcType=VARCHAR},
+			#{title, 				jdbcType=VARCHAR},
+			#{term, 				jdbcType=VARCHAR},
+			#{number, 				jdbcType=NUMERIC},
+			#{content, 				jdbcType=NUMERIC},
+			#{picture, 				jdbcType=VARCHAR},
+			#{map, 					jdbcType=VARCHAR},
+			#{transCost, 			jdbcType=NUMERIC},
+			#{stayCost, 			jdbcType=NUMERIC},
+			#{eatCost, 				jdbcType=NUMERIC},
+			#{totalCost, 			jdbcType=NUMERIC},
+			#{writer, 				jdbcType=VARCHAR},
+			#{memberPicture, 		jdbcType=VARCHAR},
+			#{birthday, 			jdbcType=DATE},
+			#{tel, 					jdbcType=VARCHAR}
+		)
+    </insert>
+    
+      <update id="update" parameterType="com.traveler.model.Share">
+          update TravelShareBoard
+          set	boardNum		= #{boardNum},			
+        	   	id				= #{id},
+        	   	title			= #{title},
+        	   	term			= #{term},
+        	   	number			= #{number},
+        	   	content			= #{content},
+        	   	picture			= #{picture},
+        	   	transCost		= #{transCost},
+        	   	stayCost		= #{stayCost},
+        	   	eatCost			= #{eatCost},
+        	   	totalCost		= #{totalCost},
+        	   	map				= #{map},
+        	   	writer			= #{writer},
+        	   	memberPicture   = #{memberPicture},
+        	    birthday		= #{birthday},
+        	    tel				= #{tel}
+          where boardNum = #{boardNum}
+      </update>
+      
+      <delete id="deleteByboardNum" parameterType="int">
+		delete from TravelShareBoard where boardNum = #{boardNum}      
+      </delete>
+      
+        <delete id="deleteAll">
+        delete from TravelShareBoard
+   		 </delete>
+         
+</mapper>
+

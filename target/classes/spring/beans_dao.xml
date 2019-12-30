@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+ 
+<!-- LogAspect -->
+<aop:aspectj-autoproxy/>
+<bean id="logAspect" class="com.traveler.aspect.LogAspect"/>
+
+<!-- Oracle / MySQL -->
+<context:property-placeholder location="classpath:database/db.properties"/>
+
+<!-- TransactionManager -->
+<tx:annotation-driven transaction-manager="transactionManager"/>
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property name="dataSource" ref="dataSource"/>
+</bean>
+
+
+
+<!-- DataSource -->
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="${className}"/>
+	<property name="url" value="${url}"/>
+	<property name="username" value="${user}"/>
+	<property name="password">
+		<value>${password}</value>
+	</property>
+</bean>
+
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"/>
+	<property name="databaseIdProvider">
+		<bean class="org.apache.ibatis.mapping.VendorDatabaseIdProvider">
+			<property name="properties">
+				<props>
+					<prop key="MySQL">mysql</prop>
+				</props>			
+			</property>
+		</bean>
+	</property>
+	
+<!-- 	<property name="mapperLocations"> -->
+<!-- 		<list> -->
+<!-- 			<value>classpath:com/traveler/mapper/MemberMapper.xml</value> -->
+<!-- 		</list> -->
+<!-- 	</property> -->
+</bean>
+
+<!-- SqlSessionTemplate -->
+<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	<constructor-arg ref="sqlSessionFactory"/>
+</bean>
+
+<!-- ShareMapper -->
+<bean id="shareMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.ShareMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"></property>
+</bean>
+
+
+<!-- AdminMapper -->
+<bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.AdminMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
+<!-- MemberMapper -->
+<bean id="memberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.MemberMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
+<!-- travelMapper -->
+<bean id="recommandMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.RecommandMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
+<bean id="commentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.CommentMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
+<bean id="shareCommentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.ShareCommentMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+<!-- RealTimeMapper -->
+<bean id="realTimeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.traveler.mapper.RealTimeMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
+<!-- recommandDao -->
+<bean id="recommandDao" class="com.traveler.dao.RecommandDao">
+	<property name="travelMapper" ref="recommandMapper"/>
+</bean>
+
+<!-- ShareDao -->
+<bean id="shareDao" class="com.traveler.dao.ShareDao">
+	<property name="shareMapper" ref="shareMapper"/>
+</bean>
+
+<!-- MemberDao -->
+<bean id="memberDao" class="com.traveler.dao.MemberDao">
+	<property name="adminMapper" ref="adminMapper"/>
+	<property name="memberMapper" ref="memberMapper"/>
+</bean>
+
+<bean id="commentDao" class="com.traveler.dao.CommentDao">
+	<property name="commentMapper" ref="commentMapper"/>
+</bean>
+
+<bean id="shareCommentDao" class="com.traveler.dao.ShareCommentDao">
+	<property name="shareCommentMapper" ref="shareCommentMapper"/>
+</bean>
+
+
+<!-- RealTimeDao -->
+<bean id="realTimeDao" class="com.traveler.dao.RealTimeDao">
+	<property name="realTimeMapper" ref="realTimeMapper"></property>
+</bean>
+
+</beans>

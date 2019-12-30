@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.traveler.mapper.RealTimeMapper">
+    
+    <select id="selectCount" resultType="int">
+		select count(*) from RealTimeBoard;        
+    </select>
+    
+    <select id="selectAll" resultType="com.traveler.mapper.RealTimeMapper">
+        select number,
+        	   content,
+        	   id,
+        	   real_date
+         from RealTimeBoard   
+    </select>
+    
+    <select id="selectByNumber" parameterType="int" resultType="com.traveler.model.RealTime">
+        select  number,
+        	   content,
+        	   id,
+        	   real_date 
+         from RealTimeBoard  
+		 where number = #{number}
+    </select>
+    
+        <select id="selectPage" 
+        	parameterType="com.traveler.util.Pagination" 
+        	resultType="com.traveler.model.RealTime"
+        	databaseId="mysql">
+         select 
+         	   number,
+        	   content,
+        	   id,
+        	   real_date
+         from RealTimeBoard  
+		 order by number desc
+		 limit #{start}, #{length} 
+    </select>
+    
+    <insert id="insert" 
+        	parameterType="com.traveler.model.RealTime"
+        	useGeneratedKeys="true"
+        	keyProperty="id"
+        	databaseId="mysql">
+        
+        insert into RealTimeBoard
+		(
+			   number,
+        	   id,
+			   content,
+			   real_date
+		)
+		values
+		(
+		    #{number,				jdbcType=NUMERIC},
+			#{id, 					jdbcType=VARCHAR},
+			#{content, 				jdbcType=VARCHAR},
+			now()
+		 )	
+    </insert>
+    
+    <delete id="deleteByNumber" parameterType="int">
+		delete from RealTimeBoard where number = #{number}      
+      </delete>
+      
+       <delete id="deleteAll">
+        	delete from RealTimeBoard
+   		</delete>
+         
+</mapper>

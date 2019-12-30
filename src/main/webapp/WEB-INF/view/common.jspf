@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<!-- CSS -->
+<c:url var="bootstrap_css"					value="/bootstrap/dist/css/bootstrap.css"/>
+<c:url var="font_awesome_css"				value="/font-awesome/css/font-awesome.css"/>
+<c:url var="metismenu_css"					value="/metismenu/dist/metisMenu.css"/>
+<c:url var="angular_loading_bar_css"	value="/angular-loading-bar/build/loading-bar.css"/>
+<c:url var="bootstrap_fileinput"		value="/bootstrap-fileinput/css/fileinput.css"/>
+
+<link rel="stylesheet" href="${bootstrap_css}"/>
+<link rel="stylesheet" href="${font_awesome_css}"/>
+<link rel="stylesheet" href="${angular_loading_bar_css}"/>
+<link rel="stylesheet" href="${bootstrap_fileinput}"/>
+
+
+<!-- JavaScripte -->
+<c:url var="jquery_js"                  value="/jquery/dist/jquery.js"/>
+<c:url var="bootstrap_js"               value="/bootstrap/dist/js/bootstrap.js"/>
+<c:url var="metismenu_js"               value="/metismenu/dist/metisMenu.js"/>
+<c:url var="bootstrap_fileinput_js"         value="/bootstrap-fileinput/js/fileinput.js"/>
+
+<c:url var="angular"                value="/angular/angular.js"/>
+<c:url var="angular_route"             value="/angular-route/angular-route.js"/>
+<c:url var="angular_animate"          value="/angular-animate/angular-animate.js"/>
+<c:url var="angular_touch"             value="/angular-touch/angular-touch.js"/>
+<c:url var="angular_loading_bar"       value="/angular-loading-bar/build/loading-bar.js"/>
+<c:url var="angular_ui_bootstrap"       value="/angular-ui-bootstrap/ui-bootstrap.js"/>
+<c:url var="angular_ui_bootstrap_tpls"   value="/angular-ui-bootstrap/ui-bootstrap-tpls.js"/>
+<c:url var="ngmap"                   value="/ngmap/build/scripts/ng-map.js"/>
+<!-- URL경로 설정 -->
+
+<script type="text/javascript" src="${jquery_js}"></script>
+<script type="text/javascript" src="${bootstrap_js}"></script>
+<script type="text/javascript" src="${metismenu_js}"></script>
+<script type="text/javascript" src="${bootstrap_fileinput_js}"></script>
+
+<script type="text/javascript" src="${angular}"></script>
+<script type="text/javascript" src="${angular_route}"></script>
+<script type="text/javascript" src="${angular_animate}"></script>
+<script type="text/javascript" src="${angular_touch}"></script>
+<script type="text/javascript" src="${angular_loading_bar}"></script>
+<script type="text/javascript" src="${angular_ui_bootstrap}"></script>
+<script type="text/javascript" src="${angular_ui_bootstrap_tpls}"></script>
+<script type="text/javascript" src="${ngmap}"></script>

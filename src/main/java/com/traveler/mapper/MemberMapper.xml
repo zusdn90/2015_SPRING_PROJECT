@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.traveler.mapper.MemberMapper">
+    <select id="loginselectAll" resultType="com.traveler.model.Member">
+        select memberPicture,
+        	   num,
+        	   id,
+			   password,
+			   name,
+			   register_date,
+			   birthday,
+			   tel,
+			   address,
+			   addressNum 
+		  from Travelmember
+    </select>
+    
+    <select id="selectByIdAndPassword"
+        	parameterType="hashmap"
+        	resultType="com.traveler.model.Member">
+        select memberPicture,
+               num,
+        	   id,
+			   password,
+			   name,
+			   register_date,
+			   birthday,
+			   tel,
+			   address,
+			   addressNum 
+		  from Travelmember
+         where id = #{id}
+           and password = #{password}
+    </select>
+    
+</mapper>

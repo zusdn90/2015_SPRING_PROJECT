@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+  <!-- Map default decorator. This shall be applied to all paths if no other paths match. -->
+<!--   <mapping decorator="/default-decorator.html"/> -->
+
+  <!-- Map decorators to path patterns. -->
+    <mapping path="/traveler/member/**" decorator="/WEB-INF/decorators/menu2.jsp"/>
+    <mapping path="/traveler/travel/shareMain.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
+    <mapping path="/traveler/recommand/recommandMain.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
+    <mapping path="/traveler/member/memberMain.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
+    <mapping path="/traveler/realTime/realTimeMain.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
+    <mapping path="/traveler/member/login.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
+    <mapping path="/traveler/admin/main.*" decorator="/WEB-INF/decorators/menu2.jsp"/>
+    
+<!--     <mapping path="/traveler/**" decorator="/WEB-INF/decorators/menu2.jsp"/> -->
+<!--   <mapping path="/traveler/shareInsert.html"             decorator="/WEB-INF/decorators/menu_sider.jsp"/> -->
+<!--   <mapping path="/traveler/travel/shareInsert.*"       decorator="/WEB-INF/decorators/menu_sider.jsp"/> -->
+<!--   <mapping path="/jsp/city/main.*"       decorator="/decorators/menu.jsp"/> -->
+      <!-- path의 경로는 webapp 밑을 지칭한다. -->
+<!--   <mapping path="/*.special.jsp" decorator="/special-decorator.html"/> -->
+
+  <!-- Alternative convention. This is more verbose but allows multiple decorators
+       to be applied to a single path. -->
+<!--   <mapping> -->
+<!--     <path>/articles/*</path> -->
+<!--     <decorator>/decorators/article.html</decorator> -->
+<!--     <decorator>/decorators/two-page-layout.html</decorator> -->
+<!--     <decorator>/decorators/common.html</decorator> -->
+<!--   </mapping> -->
+
+  <!-- Exclude path from decoration. -->
+<!--   <mapping path="/javadoc/*" exclue="true"/> -->
+<!--   <mapping path="/brochures/*" exclue="true"/> -->
+
+
+</sitemesh>

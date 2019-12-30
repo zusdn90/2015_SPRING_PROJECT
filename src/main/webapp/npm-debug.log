@@ -1,0 +1,156 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'bootstrap',
+1 verbose cli   'startbootstrap-sb-admin',
+1 verbose cli   '--save' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.2
+4 verbose install initial load of D:\03_Src\spring\Traveler\src\main\webapp\package.json
+5 warn package.json traveler@1.0.0 No description
+6 warn package.json traveler@1.0.0 No repository field.
+7 warn package.json traveler@1.0.0 No README data
+8 verbose readDependencies loading dependencies from D:\03_Src\spring\Traveler\src\main\webapp\package.json
+9 silly cache add args [ 'bootstrap@^3.3.5', null ]
+10 verbose cache add spec bootstrap@^3.3.5
+11 silly cache add args [ 'startbootstrap-sb-admin', null ]
+12 verbose cache add spec startbootstrap-sb-admin
+13 silly cache add parsed spec Result {
+13 silly cache add   raw: 'bootstrap@^3.3.5',
+13 silly cache add   scope: null,
+13 silly cache add   name: 'bootstrap',
+13 silly cache add   rawSpec: '^3.3.5',
+13 silly cache add   spec: '>=3.3.5 <4.0.0',
+13 silly cache add   type: 'range' }
+14 silly addNamed bootstrap@>=3.3.5 <4.0.0
+15 verbose addNamed ">=3.3.5 <4.0.0" is a valid semver range for bootstrap
+16 silly addNameRange { name: 'bootstrap', range: '>=3.3.5 <4.0.0', hasData: false }
+17 silly mapToRegistry name bootstrap
+18 silly mapToRegistry using default registry
+19 silly mapToRegistry registry https://registry.npmjs.org/
+20 silly mapToRegistry uri https://registry.npmjs.org/bootstrap
+21 verbose addNameRange registry:https://registry.npmjs.org/bootstrap not in flight; fetching
+22 silly cache add parsed spec Result {
+22 silly cache add   raw: 'startbootstrap-sb-admin',
+22 silly cache add   scope: null,
+22 silly cache add   name: 'startbootstrap-sb-admin',
+22 silly cache add   rawSpec: '',
+22 silly cache add   spec: '*',
+22 silly cache add   type: 'range' }
+23 silly addNamed startbootstrap-sb-admin@*
+24 verbose addNamed "*" is a valid semver range for startbootstrap-sb-admin
+25 silly addNameRange { name: 'startbootstrap-sb-admin', range: '*', hasData: false }
+26 silly mapToRegistry name startbootstrap-sb-admin
+27 silly mapToRegistry using default registry
+28 silly mapToRegistry registry https://registry.npmjs.org/
+29 silly mapToRegistry uri https://registry.npmjs.org/startbootstrap-sb-admin
+30 verbose addNameRange registry:https://registry.npmjs.org/startbootstrap-sb-admin not in flight; fetching
+31 verbose request uri https://registry.npmjs.org/startbootstrap-sb-admin
+32 verbose request no auth needed
+33 info attempt registry request try #1 at 10:41:38
+34 verbose request id 2d4e4f97eaf1699e
+35 http request GET https://registry.npmjs.org/startbootstrap-sb-admin
+36 verbose request uri https://registry.npmjs.org/bootstrap
+37 verbose request no auth needed
+38 info attempt registry request try #1 at 10:41:38
+39 verbose etag "9L511Y7I2QMSOADF8T3P5P7GX"
+40 http request GET https://registry.npmjs.org/bootstrap
+41 http 304 https://registry.npmjs.org/bootstrap
+42 verbose headers { date: 'Thu, 07 Jan 2016 01:41:37 GMT',
+42 verbose headers   via: '1.1 varnish',
+42 verbose headers   'cache-control': 'max-age=300',
+42 verbose headers   etag: '"9L511Y7I2QMSOADF8T3P5P7GX"',
+42 verbose headers   age: '297',
+42 verbose headers   connection: 'keep-alive',
+42 verbose headers   'x-served-by': 'cache-nrt6120-NRT',
+42 verbose headers   'x-cache': 'HIT',
+42 verbose headers   'x-cache-hits': '1',
+42 verbose headers   'x-timer': 'S1452130897.550273,VS0,VE0',
+42 verbose headers   vary: 'Accept' }
+43 silly get cb [ 304,
+43 silly get   { date: 'Thu, 07 Jan 2016 01:41:37 GMT',
+43 silly get     via: '1.1 varnish',
+43 silly get     'cache-control': 'max-age=300',
+43 silly get     etag: '"9L511Y7I2QMSOADF8T3P5P7GX"',
+43 silly get     age: '297',
+43 silly get     connection: 'keep-alive',
+43 silly get     'x-served-by': 'cache-nrt6120-NRT',
+43 silly get     'x-cache': 'HIT',
+43 silly get     'x-cache-hits': '1',
+43 silly get     'x-timer': 'S1452130897.550273,VS0,VE0',
+43 silly get     vary: 'Accept' } ]
+44 verbose etag https://registry.npmjs.org/bootstrap from cache
+45 verbose get saving bootstrap to C:\Users\java\AppData\Roaming\npm-cache\registry.npmjs.org\bootstrap\.cache.json
+46 silly addNameRange number 2 { name: 'bootstrap', range: '>=3.3.5 <4.0.0', hasData: true }
+47 silly addNameRange versions [ 'bootstrap',
+47 silly addNameRange   [ '0.0.1',
+47 silly addNameRange     '0.0.2',
+47 silly addNameRange     '3.1.1',
+47 silly addNameRange     '3.2.0',
+47 silly addNameRange     '3.3.0',
+47 silly addNameRange     '3.3.1',
+47 silly addNameRange     '3.3.2',
+47 silly addNameRange     '3.3.4',
+47 silly addNameRange     '3.3.5',
+47 silly addNameRange     '3.3.6',
+47 silly addNameRange     '4.0.0-alpha.2' ] ]
+48 silly addNamed bootstrap@3.3.6
+49 verbose addNamed "3.3.6" is a plain semver version for bootstrap
+50 silly cache afterAdd bootstrap@3.3.6
+51 verbose afterAdd C:\Users\java\AppData\Roaming\npm-cache\bootstrap\3.3.6\package\package.json not in flight; writing
+52 verbose afterAdd C:\Users\java\AppData\Roaming\npm-cache\bootstrap\3.3.6\package\package.json written
+53 http 404 https://registry.npmjs.org/startbootstrap-sb-admin
+54 verbose headers { 'content-type': 'application/json',
+54 verbose headers   'cache-control': 'max-age=0',
+54 verbose headers   'content-length': '2',
+54 verbose headers   'accept-ranges': 'bytes',
+54 verbose headers   date: 'Thu, 07 Jan 2016 01:41:38 GMT',
+54 verbose headers   via: '1.1 varnish',
+54 verbose headers   age: '0',
+54 verbose headers   connection: 'keep-alive',
+54 verbose headers   'x-served-by': 'cache-nrt6125-NRT',
+54 verbose headers   'x-cache': 'MISS',
+54 verbose headers   'x-cache-hits': '0',
+54 verbose headers   'x-timer': 'S1452130897.550871,VS0,VE747' }
+55 silly get cb [ 404,
+55 silly get   { 'content-type': 'application/json',
+55 silly get     'cache-control': 'max-age=0',
+55 silly get     'content-length': '2',
+55 silly get     'accept-ranges': 'bytes',
+55 silly get     date: 'Thu, 07 Jan 2016 01:41:38 GMT',
+55 silly get     via: '1.1 varnish',
+55 silly get     age: '0',
+55 silly get     connection: 'keep-alive',
+55 silly get     'x-served-by': 'cache-nrt6125-NRT',
+55 silly get     'x-cache': 'MISS',
+55 silly get     'x-cache-hits': '0',
+55 silly get     'x-timer': 'S1452130897.550871,VS0,VE747' } ]
+56 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/startbootstrap-sb-admin
+56 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+56 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:242:14)
+56 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+56 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:198:22)
+56 verbose stack     at emitTwo (events.js:87:13)
+56 verbose stack     at Request.emit (events.js:172:7)
+56 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1063:14)
+56 verbose stack     at emitOne (events.js:82:20)
+56 verbose stack     at Request.emit (events.js:169:7)
+56 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1009:12)
+57 verbose statusCode 404
+58 verbose pkgid startbootstrap-sb-admin
+59 verbose cwd D:\03_Src\spring\Traveler\src\main\webapp
+60 error Windows_NT 6.3.9600
+61 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "bootstrap" "startbootstrap-sb-admin" "--save"
+62 error node v4.2.2
+63 error npm  v2.14.7
+64 error code E404
+65 error 404 Registry returned 404 for GET on https://registry.npmjs.org/startbootstrap-sb-admin
+65 error 404
+65 error 404 'startbootstrap-sb-admin' is not in the npm registry.
+65 error 404 You should bug the author to publish it (or use the name yourself!)
+65 error 404 It was specified as a dependency of 'traveler'
+65 error 404
+65 error 404 Note that you can also install from a
+65 error 404 tarball, folder, http url, or git url.
+66 verbose exit [ 1, true ]

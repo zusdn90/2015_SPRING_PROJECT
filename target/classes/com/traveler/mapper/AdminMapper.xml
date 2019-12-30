@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.traveler.mapper.AdminMapper">
+    <select id="selectCount" resultType="int">
+        select count(*) from Travelmember
+    </select>
+    <select id="selectAll" resultType="com.traveler.model.Member">
+        select memberPicture,
+        	   num,
+        	   id,
+			   password,
+			   name,
+			   register_date,
+			   birthday,
+			   tel,
+			   address,
+			   addressNum 
+		  from Travelmember
+    </select>
+    
+    <select id="selectAdminPage" 
+     	parameterType="com.traveler.util.AdminPagination" 
+     	resultType="com.traveler.model.Member"
+     	databaseId="mysql">
+			select memberPicture,
+			       num,
+			       id,
+				   password,
+				   name,
+				   register_date,
+				   birthday,
+				   tel,
+				   address,
+				   addressNum 
+			  from Travelmember
+			 order by num desc
+			 limit #{start}, #{length} 
+    </select>
+    
+    <select id="selectByNum" parameterType="int" resultType="com.traveler.model.Member">
+        select memberPicture,
+        	   num,
+        	   id,
+			   password,
+			   name,
+			   register_date,
+			   birthday,
+			   tel,
+			   address,
+			   addressNum 
+		  from Travelmember
+		 where num = #{num}
+    </select>
+    
+    <insert id="insert" 
+        	parameterType="com.traveler.model.Member" 
+        	useGeneratedKeys="true"
+        	keyProperty="id"
+        	databaseId="mysql">
+        insert into Travelmember
+		(
+			 memberPicture,
+			 num,
+	         id,
+		 	 password,
+			 name,
+			 register_date,
+			 birthday,
+			 tel,
+			 address,
+			 addressNum
+		)
+		values
+		(
+			#{memberPicture, jdbcType=VARCHAR},
+			#{num, jdbcType=NUMERIC},
+			#{id, jdbcType=VARCHAR},
+			#{password, jdbcType=VARCHAR},
+			#{name, jdbcType=VARCHAR},
+			now(),
+			#{birthday, jdbcType=DATE},
+			#{tel, jdbcType=VARCHAR},
+			#{address, jdbcType=VARCHAR},
+			#{addressNum, jdbcType=NUMERIC}
+		)
+    </insert>
+    
+    <update id="update" parameterType="com.traveler.model.Member">
+        update Travelmember
+           set memberPicture	= #{memberPicture},
+               id				= #{id},
+		 	   password			= #{password},
+			   name				= #{name},
+			   birthday			= #{birthday},
+			   tel				= #{tel},
+			   address			= #{address},
+			   addressNum		= #{addressNum}
+         where num 				= #{num}
+    </update>
+    
+    <delete id="deleteByNum" parameterType="int">
+        delete from Travelmember where num = #{num}
+    </delete>
+    
+    <select id="chkId" resultType="int">
+		 select count(*)
+		   from Travelmember
+		  where id = #{id} 
+	</select>
+
+</mapper>
